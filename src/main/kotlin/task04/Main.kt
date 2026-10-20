@@ -1,6 +1,6 @@
 package main.kotlin.task04
 
-inline fun command(action: () -> Unit): Runnable =
+inline fun command(crossinline action: () -> Unit): Runnable =
     Runnable { action() }
 
 fun main() {

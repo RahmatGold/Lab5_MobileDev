@@ -2,7 +2,7 @@ package main.kotlin.task02
 
 val pending = mutableListOf<() -> Unit>()
 
-inline fun addTask(save: () -> Unit, reminder: () -> Unit) {
+inline fun addTask(save: () -> Unit, noinline reminder: () -> Unit) {
     save()
     pending.add(reminder)
 }

@@ -1,6 +1,13 @@
 package main.kotlin.task12
 
-class Contact(val name: String, val phone: String)
+class Contact(val name: String, val phone: String) {
+    override fun toString(): String = "$name ($phone)"
+
+    override fun equals(other: Any?): Boolean =
+        other is Contact && other.phone == phone
+
+    override fun hashCode(): Int = phone.hashCode()
+}
 
 fun readContact(): Contact {
     print("Name: ")
@@ -22,11 +29,3 @@ fun main() {
     println("book contains b: ${b in book}")
 }
 
-class Contact(val name: String, val phone: String) {
-    override fun toString(): String = "$name ($phone)"
-
-    override fun equals(other: Any?): Boolean =
-        other is Contact && other.phone == phone
-
-    override fun hashCode(): Int = phone.hashCode()
-}

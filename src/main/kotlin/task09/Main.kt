@@ -1,6 +1,7 @@
 package main.kotlin.task09
 
-private var debugEnabled = false
+@PublishedApi
+internal var debugEnabled = false
 
 inline fun debug(message: () -> String) {
     if (debugEnabled) println("[DEBUG] ${message()}")
@@ -14,10 +15,8 @@ fun buildReport(): String {
 fun main() {
     print("Enable debug logging? (yes/no): ")
     debugEnabled = readln().trim().equals("yes", ignoreCase = true)
+
     debug { buildReport() }
+
     println("Program finished")
 }
-
-
-@PublishedApi
-internal var debugEnabled = false

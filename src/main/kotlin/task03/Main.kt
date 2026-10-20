@@ -35,7 +35,7 @@ fun findWithEach(query: String) {
     each(contacts) {
         if (it.contains(query, ignoreCase = true)) {
             println("First match: $it")
-            return
+            return@each
         }
     }
 }
